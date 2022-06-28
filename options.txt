@@ -1,0 +1,4 @@
+dark_mode=true
+easiness=3
+board_length=15
+board_width=15

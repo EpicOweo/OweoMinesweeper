@@ -12,17 +12,17 @@ button_grid = []
 spritesheet = []
 root = None
 
-square_sprite = None
-bomb_sprite = None
-
 generated = False
 
-def get_stuff(bg, ss, rt, sq_sprite):
-    global button_grid, spritesheet, root, square_sprite
+
+def get_stuff(bg, ss, rt, options):
+    global button_grid, spritesheet, root, length, width, easiness
     button_grid = bg
     spritesheet = ss
     root = rt
-    square_sprite = sq_sprite
+    length = int(options['board_length'])
+    width = int(options['board_width'])
+    easiness = int(options['easiness'])
 
 
 class GridSquare:
@@ -54,7 +54,7 @@ class GridSquare:
         if self.revealed:
             return
         if self.flag:
-            newimg = square_sprite
+            newimg = spritesheet[11]
         else:
             newimg = spritesheet[10]
         self.flag = not self.flag
